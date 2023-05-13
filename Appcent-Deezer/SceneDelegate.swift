@@ -12,12 +12,98 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
 
+//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+//        guard let windowScene = scene as? UIWindowScene else { return }
+//
+//        let window = UIWindow(windowScene: windowScene)
+//
+//        let homeViewController = FirstViewController()
+//        let secondViewController = SecondViewController()
+//
+//        let homeNavigationController = UINavigationController(rootViewController: homeViewController)
+//        let secondNavigationController = UINavigationController(rootViewController: secondViewController)
+//
+//        let tabBarController = UITabBarController()
+//        tabBarController.viewControllers = [homeNavigationController, secondNavigationController]
+//
+//        // Customize the navigation bar appearance
+//        tabBarController.tabBar.isTranslucent = false
+//            tabBarController.tabBar.barTintColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
+//            tabBarController.tabBar.tintColor = .white
+//
+//            // Set the title and icon for each tab
+//            homeNavigationController.tabBarItem = UITabBarItem(title: "Music", image: UIImage(systemName: "music.note"), tag: 0)
+//            secondNavigationController.tabBarItem = UITabBarItem(title: "Like", image: UIImage(systemName: "heart"), tag: 1)
+//        // Set the tab bar controller as the root view controller
+//        window.rootViewController = tabBarController
+//        homeViewController.navigationItem.title = "Artists"
+//
+//
+//        window.makeKeyAndVisible()
+//
+//        self.window = window
+//
+//
+//        // Optionally, perform any additional configuration or setup here
+//
+//        // Save the window reference to a property if you need to access it later
+//        // Example: self.window = window
+//
+//
+//    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = scene as? UIWindowScene else { return }
+        
+        let window = UIWindow(windowScene: windowScene)
+        
+        let homeViewController = FirstViewController()
+        let secondViewController = SecondViewController()
+        
+        let homeNavigationController = UINavigationController(rootViewController: homeViewController)
+        let secondNavigationController = UINavigationController(rootViewController: secondViewController)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [homeNavigationController, secondNavigationController]
+        
+        // Customize the tab bar appearance
+        tabBarController.tabBar.isTranslucent = false
+        tabBarController.tabBar.tintColor = .systemPink
+        
+        if #available(iOS 13.0, *) {
+            // Set the background color to adapt to the light and dark themes
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .systemBackground
+            appearance.shadowImage = nil
+            appearance.shadowColor = nil
+            tabBarController.tabBar.standardAppearance = appearance
+            tabBarController.tabBar.scrollEdgeAppearance = appearance
+        } else {
+            // Set the background color for earlier iOS versions
+            tabBarController.tabBar.barTintColor = .systemPink
+        }
+        
+        // Set the title and icon for each tab
+        homeNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "music.note"), tag: 0)
+        secondNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart"), tag: 1)
+        
+        // Customize tab bar item appearance
+        let tabBarItemAppearance = UITabBarItem.appearance()
+        tabBarItemAppearance.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemPink], for: .normal)
+        tabBarItemAppearance.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemPink], for: .selected)
+        
+        // Set the tab bar controller as the root view controller
+        window.rootViewController = tabBarController
+        
+        window.makeKeyAndVisible()
+        
+        self.window = window
+    
     }
+
+
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

@@ -9,23 +9,47 @@
 /* Begin PBXBuildFile section */
 		C7B9C7412A0E951400C7ECD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7402A0E951400C7ECD1 /* AppDelegate.swift */; };
 		C7B9C7432A0E951400C7ECD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7422A0E951400C7ECD1 /* SceneDelegate.swift */; };
-		C7B9C7452A0E951400C7ECD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7442A0E951400C7ECD1 /* ViewController.swift */; };
 		C7B9C7482A0E951400C7ECD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B9C7462A0E951400C7ECD1 /* Main.storyboard */; };
 		C7B9C74B2A0E951400C7ECD1 /* Appcent_Deezer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7492A0E951400C7ECD1 /* Appcent_Deezer.xcdatamodeld */; };
 		C7B9C74D2A0E951500C7ECD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B9C74C2A0E951500C7ECD1 /* Assets.xcassets */; };
 		C7B9C7502A0E951500C7ECD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B9C74E2A0E951500C7ECD1 /* LaunchScreen.storyboard */; };
+		C7B9C75B2A0E965000C7ECD1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C75A2A0E965000C7ECD1 /* FirstViewController.swift */; };
+		C7B9C75D2A0E966900C7ECD1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C75C2A0E966900C7ECD1 /* SecondViewController.swift */; };
+		C7B9C75F2A0E9A1100C7ECD1 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C75E2A0E9A1100C7ECD1 /* Genre.swift */; };
+		C7B9C7612A0E9A3300C7ECD1 /* Artists.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7602A0E9A3300C7ECD1 /* Artists.swift */; };
+		C7B9C7632A0E9A5400C7ECD1 /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7622A0E9A5400C7ECD1 /* GenreCell.swift */; };
+		C7B9C7652A0E9A6300C7ECD1 /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7642A0E9A6300C7ECD1 /* ArtistCell.swift */; };
+		C7B9C7672A0E9ABB00C7ECD1 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7662A0E9ABB00C7ECD1 /* ArtistViewController.swift */; };
+		C7B9C7692A0EE0CD00C7ECD1 /* ArtistDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7682A0EE0CD00C7ECD1 /* ArtistDetailsViewController.swift */; };
+		C7B9C76B2A0EE63D00C7ECD1 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C76A2A0EE63D00C7ECD1 /* Album.swift */; };
+		C7B9C76D2A0EE65700C7ECD1 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C76C2A0EE65700C7ECD1 /* AlbumCell.swift */; };
+		C7B9C76F2A0EEA8F00C7ECD1 /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C76E2A0EEA8F00C7ECD1 /* AlbumDetailViewController.swift */; };
+		C7B9C7712A0EEBE500C7ECD1 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7702A0EEBE500C7ECD1 /* Track.swift */; };
+		C7B9C7732A0EEBF900C7ECD1 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7722A0EEBF900C7ECD1 /* TrackCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C7B9C73D2A0E951400C7ECD1 /* Appcent-Deezer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appcent-Deezer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B9C7402A0E951400C7ECD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7B9C7422A0E951400C7ECD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C7B9C7442A0E951400C7ECD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7B9C7472A0E951400C7ECD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7B9C74A2A0E951400C7ECD1 /* Appcent_Deezer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Appcent_Deezer.xcdatamodel; sourceTree = "<group>"; };
 		C7B9C74C2A0E951500C7ECD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7B9C74F2A0E951500C7ECD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7B9C7512A0E951500C7ECD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7B9C75A2A0E965000C7ECD1 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		C7B9C75C2A0E966900C7ECD1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C7B9C75E2A0E9A1100C7ECD1 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		C7B9C7602A0E9A3300C7ECD1 /* Artists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artists.swift; sourceTree = "<group>"; };
+		C7B9C7622A0E9A5400C7ECD1 /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
+		C7B9C7642A0E9A6300C7ECD1 /* ArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
+		C7B9C7662A0E9ABB00C7ECD1 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
+		C7B9C7682A0EE0CD00C7ECD1 /* ArtistDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsViewController.swift; sourceTree = "<group>"; };
+		C7B9C76A2A0EE63D00C7ECD1 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		C7B9C76C2A0EE65700C7ECD1 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		C7B9C76E2A0EEA8F00C7ECD1 /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
+		C7B9C7702A0EEBE500C7ECD1 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		C7B9C7722A0EEBF900C7ECD1 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +82,11 @@
 		C7B9C73F2A0E951400C7ECD1 /* Appcent-Deezer */ = {
 			isa = PBXGroup;
 			children = (
+				C7B9C7592A0E960000C7ECD1 /* Controllers */,
+				C7B9C7582A0E95F900C7ECD1 /* Views */,
+				C7B9C7572A0E95F600C7ECD1 /* Models */,
 				C7B9C7402A0E951400C7ECD1 /* AppDelegate.swift */,
 				C7B9C7422A0E951400C7ECD1 /* SceneDelegate.swift */,
-				C7B9C7442A0E951400C7ECD1 /* ViewController.swift */,
 				C7B9C7462A0E951400C7ECD1 /* Main.storyboard */,
 				C7B9C74C2A0E951500C7ECD1 /* Assets.xcassets */,
 				C7B9C74E2A0E951500C7ECD1 /* LaunchScreen.storyboard */,
@@ -68,6 +94,40 @@
 				C7B9C7492A0E951400C7ECD1 /* Appcent_Deezer.xcdatamodeld */,
 			);
 			path = "Appcent-Deezer";
+			sourceTree = "<group>";
+		};
+		C7B9C7572A0E95F600C7ECD1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7B9C75E2A0E9A1100C7ECD1 /* Genre.swift */,
+				C7B9C7602A0E9A3300C7ECD1 /* Artists.swift */,
+				C7B9C76A2A0EE63D00C7ECD1 /* Album.swift */,
+				C7B9C7702A0EEBE500C7ECD1 /* Track.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C7B9C7582A0E95F900C7ECD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C7B9C7622A0E9A5400C7ECD1 /* GenreCell.swift */,
+				C7B9C7642A0E9A6300C7ECD1 /* ArtistCell.swift */,
+				C7B9C76C2A0EE65700C7ECD1 /* AlbumCell.swift */,
+				C7B9C7722A0EEBF900C7ECD1 /* TrackCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C7B9C7592A0E960000C7ECD1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7B9C75A2A0E965000C7ECD1 /* FirstViewController.swift */,
+				C7B9C75C2A0E966900C7ECD1 /* SecondViewController.swift */,
+				C7B9C7662A0E9ABB00C7ECD1 /* ArtistViewController.swift */,
+				C7B9C7682A0EE0CD00C7ECD1 /* ArtistDetailsViewController.swift */,
+				C7B9C76E2A0EEA8F00C7ECD1 /* AlbumDetailViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +201,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B9C7692A0EE0CD00C7ECD1 /* ArtistDetailsViewController.swift in Sources */,
+				C7B9C76D2A0EE65700C7ECD1 /* AlbumCell.swift in Sources */,
+				C7B9C75D2A0E966900C7ECD1 /* SecondViewController.swift in Sources */,
+				C7B9C75B2A0E965000C7ECD1 /* FirstViewController.swift in Sources */,
+				C7B9C7652A0E9A6300C7ECD1 /* ArtistCell.swift in Sources */,
+				C7B9C7612A0E9A3300C7ECD1 /* Artists.swift in Sources */,
+				C7B9C7632A0E9A5400C7ECD1 /* GenreCell.swift in Sources */,
 				C7B9C74B2A0E951400C7ECD1 /* Appcent_Deezer.xcdatamodeld in Sources */,
-				C7B9C7452A0E951400C7ECD1 /* ViewController.swift in Sources */,
+				C7B9C75F2A0E9A1100C7ECD1 /* Genre.swift in Sources */,
 				C7B9C7412A0E951400C7ECD1 /* AppDelegate.swift in Sources */,
 				C7B9C7432A0E951400C7ECD1 /* SceneDelegate.swift in Sources */,
+				C7B9C7712A0EEBE500C7ECD1 /* Track.swift in Sources */,
+				C7B9C76F2A0EEA8F00C7ECD1 /* AlbumDetailViewController.swift in Sources */,
+				C7B9C7672A0E9ABB00C7ECD1 /* ArtistViewController.swift in Sources */,
+				C7B9C76B2A0EE63D00C7ECD1 /* Album.swift in Sources */,
+				C7B9C7732A0EEBF900C7ECD1 /* TrackCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +368,6 @@
 				INFOPLIST_FILE = "Appcent-Deezer/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +395,6 @@
 				INFOPLIST_FILE = "Appcent-Deezer/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
