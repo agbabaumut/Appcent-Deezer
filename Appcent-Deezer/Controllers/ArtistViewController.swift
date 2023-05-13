@@ -10,36 +10,29 @@ import UIKit
 class ArtistViewController: UIViewController {
     public var artists: [Artist] = []
     private var collectionView: UICollectionView!
-    private var genreNameLabel: UILabel!
+    // private var genreNameLabel: UILabel!
     var genreId: Int?
+    var genreName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        setupGenreNameLabel()
+        view.backgroundColor = .systemYellow
+        
         setupCollectionView()
         fetchArtists()
         
-        title = "Artists"
+        title = genreName
         
-    }
-    
-    private func setupGenreNameLabel() {
-        genreNameLabel = UILabel(frame: CGRect(x: 20, y: 100, width: view.bounds.width - 40, height: 30))
-        genreNameLabel.textAlignment = .center
-        genreNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        view.addSubview(genreNameLabel)
     }
     
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 150, width: view.bounds.width, height: view.bounds.height - 150), collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - 150), collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(ArtistCell.self, forCellWithReuseIdentifier: "ArtistCell")
-        collectionView.backgroundColor = .white
         view.addSubview(collectionView)
     }
     

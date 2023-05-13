@@ -70,23 +70,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarController.tabBar.isTranslucent = false
         tabBarController.tabBar.tintColor = .systemPink
         
-        if #available(iOS 13.0, *) {
-            // Set the background color to adapt to the light and dark themes
-            let appearance = UITabBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .systemBackground
-            appearance.shadowImage = nil
-            appearance.shadowColor = nil
-            tabBarController.tabBar.standardAppearance = appearance
-            tabBarController.tabBar.scrollEdgeAppearance = appearance
-        } else {
-            // Set the background color for earlier iOS versions
-            tabBarController.tabBar.barTintColor = .systemPink
-        }
-        
         // Set the title and icon for each tab
-        homeNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "music.note"), tag: 0)
-        secondNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart"), tag: 1)
+        homeNavigationController.tabBarItem = UITabBarItem(title: "Music", image: UIImage(systemName: "music.note"), tag: 0)
+        secondNavigationController.tabBarItem = UITabBarItem(title: "Liked", image: UIImage(systemName: "heart"), tag: 1)
         
         // Customize tab bar item appearance
         let tabBarItemAppearance = UITabBarItem.appearance()

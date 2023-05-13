@@ -14,6 +14,8 @@ class TrackCell: UITableViewCell {
     private var durationLabel: UILabel!
     private var audioPlayer: AVPlayer?
     private var heartButton: UIButton!
+    public var isPlaying: Bool = false
+
 
     
     var track: Track?
@@ -110,11 +112,13 @@ class TrackCell: UITableViewCell {
         let playerItem = AVPlayerItem(url: previewURL)
         audioPlayer = AVPlayer(playerItem: playerItem)
         audioPlayer?.play()
+        isPlaying = true
     }
     
     func stopPreview() {
         audioPlayer?.pause()
         audioPlayer = nil
+        isPlaying = false
     }
     
     override func prepareForReuse() {

@@ -34,6 +34,8 @@ class GenreCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
+        addThinLineFrame()
+
     }
     
     required init?(coder: NSCoder) {
@@ -55,6 +57,13 @@ class GenreCell: UICollectionViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
+    }
+    
+    private func addThinLineFrame() {
+        layer.borderWidth = 1.0
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.cornerRadius = 1.0
+        
     }
     
     func configure(with genre: Genre) {

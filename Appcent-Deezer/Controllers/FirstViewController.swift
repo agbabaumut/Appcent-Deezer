@@ -10,6 +10,7 @@ import UIKit
 class FirstViewController: UIViewController {
     
     private var genres: [Genre] = []
+    var selectedGenre: String?
     
     private lazy var collectionView: UICollectionView = {
         
@@ -22,7 +23,6 @@ class FirstViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(GenreCell.self, forCellWithReuseIdentifier: GenreCell.reuseIdentifier)
@@ -33,11 +33,10 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         fetchGenres()
         
+        navigationController?.navigationBar.barTintColor = .red
+        navigationController?.navigationBar.isTranslucent = true
         
-        
-        
-        view.backgroundColor = .white
-        title = " "
+        view.backgroundColor = .systemBackground
         
         view.addSubview(collectionView)
         
@@ -106,10 +105,10 @@ extension FirstViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedGenre = genres[indexPath.item]
-        fetchArtists(for: selectedGenre.id)
+        fetchArtists(for: selectedGenre.id, with: selectedGenre.name)
     }
     
-    func fetchArtists(for genreId: Int) {
+    func fetchArtists(for genreId: Int, with genreName: String) {
         guard let url = URL(string: "https://api.deezer.com/genre/\(genreId)/artists") else {
             print("Invalid URL")
             return
@@ -132,6 +131,7 @@ extension FirstViewController: UICollectionViewDelegateFlowLayout, UICollectionV
                     let artistViewController = ArtistViewController()
                     artistViewController.genreId = genreId
                     artistViewController.artists = response.data
+                    artistViewController.genreName = genreName
                     DispatchQueue.main.async {
                         if let navigationController = self?.navigationController {
                             navigationController.pushViewController(artistViewController, animated: true)

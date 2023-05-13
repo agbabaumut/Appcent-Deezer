@@ -21,36 +21,30 @@ class ArtistDetailsViewController: UIViewController {
         configureViews()
         fetchArtistData()
         fetchAlbums()
-    }
-    
-    private func setupViews() {
-        artistImageView = UIImageView()
-        titleLabel = UILabel()
-        albumsListView = UITableView()
         
-        view.addSubview(artistImageView)
-        view.addSubview(titleLabel)
-        view.addSubview(albumsListView)
+        title = artist?.name
     }
-    
     private func configureViews() {
-        artistImageView.contentMode = .scaleAspectFit
         
-        titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        artistImageView.contentMode = .scaleAspectFit
         
         albumsListView.dataSource = self
         albumsListView.delegate = self
         albumsListView.register(AlbumCell.self, forCellReuseIdentifier: "AlbumCell")
     }
+    private func setupViews() {
+        artistImageView = UIImageView()
+        albumsListView = UITableView()
+        
+        view.addSubview(artistImageView)
+        view.addSubview(albumsListView)
+        view.backgroundColor = .orange
+    }
     
     private func fetchArtistData() {
         guard let artist = artist else {
-            print("yo knkk")
             return
         }
-        
-        titleLabel.text = artist.name
         
         let urlString = "https://api.deezer.com/artist/\(artist.id)"
         
@@ -113,22 +107,32 @@ class ArtistDetailsViewController: UIViewController {
             } catch {
                 // Handle parsing error
                 print("Error decoding albums: \(error)")
-            print("olmadı ustağ")
             }
         }.resume()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        let margin: CGFloat = 16
-        let imageViewWidth = view.bounds.width - 2 * margin
-        let imageViewHeight = imageViewWidth / 2
+
+        let margin: CGFloat = 15
+        let imageViewWidth = view.bounds.width - 2 * margin // This will make the image narrower
+        let imageViewHeight = imageViewWidth * 0.6 // Adjust the aspect ratio to make it smaller
         let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 0
+
+        // Position the image view in the center of X and with the new size
+        artistImageView.frame = CGRect(
+            x: (view.bounds.width - imageViewWidth) / 2, // Center the image view
+            y: tabBarHeight + margin,
+            width: imageViewWidth,
+            height: imageViewHeight
+        )
         
-        artistImageView.frame = CGRect(x: margin, y: tabBarHeight + margin, width: imageViewWidth, height: imageViewHeight)
-        titleLabel.frame = CGRect(x: margin, y: tabBarHeight + margin + imageViewHeight + margin, width: imageViewWidth, height: 30)
-        albumsListView.frame = CGRect(x: 0, y: tabBarHeight + margin + imageViewHeight + margin + 30 + margin, width: view.bounds.width, height: view.bounds.height - tabBarHeight - margin - imageViewHeight - margin - 30 - margin)
+        albumsListView.frame = CGRect(
+            x: 0,
+            y: artistImageView.frame.maxY + margin,
+            width: view.bounds.width,
+            height: view.bounds.height - artistImageView.frame.maxY - margin
+        )
     }
 }
 
