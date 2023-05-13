@@ -10,47 +10,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
-//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//        guard let windowScene = scene as? UIWindowScene else { return }
-//
-//        let window = UIWindow(windowScene: windowScene)
-//
-//        let homeViewController = FirstViewController()
-//        let secondViewController = SecondViewController()
-//
-//        let homeNavigationController = UINavigationController(rootViewController: homeViewController)
-//        let secondNavigationController = UINavigationController(rootViewController: secondViewController)
-//
-//        let tabBarController = UITabBarController()
-//        tabBarController.viewControllers = [homeNavigationController, secondNavigationController]
-//
-//        // Customize the navigation bar appearance
-//        tabBarController.tabBar.isTranslucent = false
-//            tabBarController.tabBar.barTintColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
-//            tabBarController.tabBar.tintColor = .white
-//
-//            // Set the title and icon for each tab
-//            homeNavigationController.tabBarItem = UITabBarItem(title: "Music", image: UIImage(systemName: "music.note"), tag: 0)
-//            secondNavigationController.tabBarItem = UITabBarItem(title: "Like", image: UIImage(systemName: "heart"), tag: 1)
-//        // Set the tab bar controller as the root view controller
-//        window.rootViewController = tabBarController
-//        homeViewController.navigationItem.title = "Artists"
-//
-//
-//        window.makeKeyAndVisible()
-//
-//        self.window = window
-//
-//
-//        // Optionally, perform any additional configuration or setup here
-//
-//        // Save the window reference to a property if you need to access it later
-//        // Example: self.window = window
-//
-//
-//    }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }

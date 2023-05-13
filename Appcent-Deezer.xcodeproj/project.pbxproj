@@ -26,6 +26,10 @@
 		C7B9C76F2A0EEA8F00C7ECD1 /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C76E2A0EEA8F00C7ECD1 /* AlbumDetailViewController.swift */; };
 		C7B9C7712A0EEBE500C7ECD1 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7702A0EEBE500C7ECD1 /* Track.swift */; };
 		C7B9C7732A0EEBF900C7ECD1 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7722A0EEBF900C7ECD1 /* TrackCell.swift */; };
+		C7B9C7752A0FE61300C7ECD1 /* LikedSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7742A0FE61300C7ECD1 /* LikedSong.swift */; };
+		C7B9C7782A0FEE2200C7ECD1 /* LikedSongs+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7762A0FEE2200C7ECD1 /* LikedSongs+CoreDataClass.swift */; };
+		C7B9C7792A0FEE2200C7ECD1 /* LikedSongs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C7772A0FEE2200C7ECD1 /* LikedSongs+CoreDataProperties.swift */; };
+		C7B9C77C2A0FF14D00C7ECD1 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9C77B2A0FF14D00C7ECD1 /* CoreDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		C7B9C76E2A0EEA8F00C7ECD1 /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
 		C7B9C7702A0EEBE500C7ECD1 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		C7B9C7722A0EEBF900C7ECD1 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		C7B9C7742A0FE61300C7ECD1 /* LikedSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedSong.swift; sourceTree = "<group>"; };
+		C7B9C7762A0FEE2200C7ECD1 /* LikedSongs+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LikedSongs+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C7B9C7772A0FEE2200C7ECD1 /* LikedSongs+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LikedSongs+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C7B9C77B2A0FF14D00C7ECD1 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 		C7B9C73F2A0E951400C7ECD1 /* Appcent-Deezer */ = {
 			isa = PBXGroup;
 			children = (
+				C7B9C77A2A0FEE2A00C7ECD1 /* CoreData */,
 				C7B9C7592A0E960000C7ECD1 /* Controllers */,
 				C7B9C7582A0E95F900C7ECD1 /* Views */,
 				C7B9C7572A0E95F600C7ECD1 /* Models */,
@@ -103,6 +112,7 @@
 				C7B9C7602A0E9A3300C7ECD1 /* Artists.swift */,
 				C7B9C76A2A0EE63D00C7ECD1 /* Album.swift */,
 				C7B9C7702A0EEBE500C7ECD1 /* Track.swift */,
+				C7B9C7742A0FE61300C7ECD1 /* LikedSong.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +138,16 @@
 				C7B9C76E2A0EEA8F00C7ECD1 /* AlbumDetailViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C7B9C77A2A0FEE2A00C7ECD1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C7B9C7762A0FEE2200C7ECD1 /* LikedSongs+CoreDataClass.swift */,
+				C7B9C7772A0FEE2200C7ECD1 /* LikedSongs+CoreDataProperties.swift */,
+				C7B9C77B2A0FF14D00C7ECD1 /* CoreDataModel.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,9 +225,11 @@
 				C7B9C76D2A0EE65700C7ECD1 /* AlbumCell.swift in Sources */,
 				C7B9C75D2A0E966900C7ECD1 /* SecondViewController.swift in Sources */,
 				C7B9C75B2A0E965000C7ECD1 /* FirstViewController.swift in Sources */,
+				C7B9C7782A0FEE2200C7ECD1 /* LikedSongs+CoreDataClass.swift in Sources */,
 				C7B9C7652A0E9A6300C7ECD1 /* ArtistCell.swift in Sources */,
 				C7B9C7612A0E9A3300C7ECD1 /* Artists.swift in Sources */,
 				C7B9C7632A0E9A5400C7ECD1 /* GenreCell.swift in Sources */,
+				C7B9C7792A0FEE2200C7ECD1 /* LikedSongs+CoreDataProperties.swift in Sources */,
 				C7B9C74B2A0E951400C7ECD1 /* Appcent_Deezer.xcdatamodeld in Sources */,
 				C7B9C75F2A0E9A1100C7ECD1 /* Genre.swift in Sources */,
 				C7B9C7412A0E951400C7ECD1 /* AppDelegate.swift in Sources */,
@@ -215,7 +237,9 @@
 				C7B9C7712A0EEBE500C7ECD1 /* Track.swift in Sources */,
 				C7B9C76F2A0EEA8F00C7ECD1 /* AlbumDetailViewController.swift in Sources */,
 				C7B9C7672A0E9ABB00C7ECD1 /* ArtistViewController.swift in Sources */,
+				C7B9C7752A0FE61300C7ECD1 /* LikedSong.swift in Sources */,
 				C7B9C76B2A0EE63D00C7ECD1 /* Album.swift in Sources */,
+				C7B9C77C2A0FF14D00C7ECD1 /* CoreDataModel.swift in Sources */,
 				C7B9C7732A0EEBF900C7ECD1 /* TrackCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

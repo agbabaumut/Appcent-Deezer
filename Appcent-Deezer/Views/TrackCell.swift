@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class TrackCell: UITableViewCell {
     private var coverImageView: UIImageView!
@@ -15,6 +16,8 @@ class TrackCell: UITableViewCell {
     private var audioPlayer: AVPlayer?
     private var heartButton: UIButton!
     public var isPlaying: Bool = false
+    
+    public var isLiked: Bool = false
 
 
     
@@ -126,10 +129,67 @@ class TrackCell: UITableViewCell {
         stopPreview()
     }
     
+//    @objc private func heartButtonTapped() {
+//        guard let track = track else {
+//                return
+//            }
+//        heartButton.isSelected.toggle()
+//
+//        isLiked.toggle()
+//        if isLiked {
+//            LikedSongsManager.shared.addTrack(track)
+//            print("selected-liked")
+//        } else {
+//            LikedSongsManager.shared.removeTrack(track)
+//            print("didntselcted")
+//        }
+//
+//
+//
+//    }
     @objc private func heartButtonTapped() {
-        heartButton.isSelected.toggle()
-
+        guard let track = track else {
+            return
+        }
         
+        heartButton.isSelected.toggle()
+        isLiked.toggle()
+        
+        if isLiked {
+            // Add the liked song to Core Data
+            let likedSong = LikedSongs(context: CoreDataStack.shared.persistentContainer.viewContext)
+            likedSong.songName = track.title
+            likedSong.songImage = track.album.cover_xl.data(using: .utf8)
+            likedSong.songDuration = String(track.duration ?? 0)
+            
+            CoreDataStack.shared.saveContext()
+            LikedSongsManager.shared.addTrack(track)
+            
+            print("Selected - Liked")
+        } else {
+            // Remove the liked song from Core Data
+                let context = CoreDataStack.shared.persistentContainer.viewContext
+                
+                // Fetch the corresponding LikedSong object from Core Data
+                let fetchRequest: NSFetchRequest<LikedSongs> = LikedSongs.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "songName == %@", track.title)
+                
+                do {
+                    let fetchedResults = try context.fetch(fetchRequest)
+                    
+                    if let likedSong = fetchedResults.first {
+                        context.delete(likedSong)
+                        try context.save()
+                        
+                        print("Deselected")
+                        LikedSongsManager.shared.removeTrack(track)
+                    }
+                } catch {
+                    print("Failed to remove liked song from Core Data: \(error)")
+                }
+        }
+
     }
+
 }
 
