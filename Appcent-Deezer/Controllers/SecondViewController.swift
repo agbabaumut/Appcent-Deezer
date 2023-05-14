@@ -6,6 +6,7 @@
 //
 //
 import UIKit
+import CoreData
 
 class SecondViewController: UIViewController {
     private var tableView: UITableView!
@@ -105,13 +106,31 @@ extension SecondViewController: TrackCellDelegate {
 
         let track = likedSongs[indexPath.row]
 
-        if isLiked {
-            LikedSongsManager.shared.addTrack(track)
-        } else {
-            LikedSongsManager.shared.removeTrack(track)
+        if !isLiked {
+            // Retrieve the liked song from Core Data using its unique identifier
+            let sceneDelegate = UIApplication.shared.delegate as! SceneDelegate
+            let context = sceneDelegate.persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<LikedSongs> = LikedSongs.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %d", track.id)
+
+            do {
+                let fetchedResults = try context.fetch(fetchRequest)
+
+                if let likedSong = fetchedResults.first {
+                    context.delete(likedSong)
+                    try context.save()
+
+                    print("Deselected")
+                }
+            } catch {
+                print("Failed to delete liked song from Core Data: \(error)")
+            }
         }
+
+        fetchLikedSongs()
     }
 }
+
 
 //import UIKit
 //

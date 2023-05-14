@@ -18,8 +18,10 @@ class TrackCell: UITableViewCell {
     public var isPlaying: Bool = false
     weak var delegate: TrackCellDelegate?
     public var isLiked: Bool = false
-
-
+    var likedSong: LikedSongs?
+    
+    
+    
     
     var track: Track?
     
@@ -48,7 +50,7 @@ class TrackCell: UITableViewCell {
         
         
         heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
-
+        
     }
     
     public func configureViews() {
@@ -143,66 +145,99 @@ class TrackCell: UITableViewCell {
         isLiked.toggle()
         setHeartIconSelected(isLiked)
         delegate?.trackCell(self, didChangeLikedState: isLiked)
-        
+
         if isLiked {
             LikedSongsManager.shared.addTrack(track)
             print("Selected - Liked")
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let newLikedSong = LikedSongs(context: context)
+            newLikedSong.songName = track.title
+            newLikedSong.songImage = coverImageView.image?.pngData()
+            newLikedSong.songDuration = durationLabel.text
+
+            do {
+                try context.save()
+            } catch {
+                print("Failed to save context: \(error)")
+            }
         } else {
+            guard let likedSong = likedSong else {
+                return
+            }
+            
             LikedSongsManager.shared.removeTrack(track)
             print("Deselected")
+            
+            let sceneDelegate = UIApplication.shared.delegate as! SceneDelegate
+            let context = sceneDelegate.persistentContainer.viewContext
+            context.delete(likedSong)
+
+            do {
+                try context.save()
+            } catch {
+                print("Failed to save context: \(error)")
+            }
         }
     }
 
-    
+
     
 //    @objc private func heartButtonTapped() {
 //        guard let track = track else {
 //            return
 //        }
 //
-//        heartButton.isSelected.toggle()
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        let saveData = NSEntityDescription.insertNewObject(forEntityName: "LikedSongs", into: context)
+//
 //        isLiked.toggle()
+//        setHeartIconSelected(isLiked)
 //        delegate?.trackCell(self, didChangeLikedState: isLiked)
-//
+
 //        if isLiked {
-//            // Add the liked song to Core Data
-//            let likedSong = LikedSongs(context: CoreDataStack.shared.persistentContainer.viewContext)
-//            likedSong.songName = track.title
-//            likedSong.songImage = track.album.cover_xl.data(using: .utf8)
-//            likedSong.songDuration = String(track.duration ?? 0)
-//
-//            CoreDataStack.shared.saveContext()
 //            LikedSongsManager.shared.addTrack(track)
-//
-//
 //            print("Selected - Liked")
+//            let newLikedSong = LikedSongs(context: CoreDataStack.shared.persistentContainer.viewContext)
+//            newLikedSong.songName = track.title
+//            newLikedSong.songImage = coverImageView.image?.pngData()
+//            newLikedSong.songDuration = durationLabel.text
+//
+//            // Save the context
+//            CoreDataStack.shared.saveContext()
+//
+//            // Assign the newLikedSong to the likedSong property for reference
+//            likedSong = newLikedSong
+//
 //        } else {
-//            // Remove the liked song from Core Data
-//                let context = CoreDataStack.shared.persistentContainer.viewContext
+//            LikedSongsManager.shared.removeTrack(track)
+//            CoreDataStack.shared.persistentContainer.viewContext.delete(likedSong!)
 //
-//                // Fetch the corresponding LikedSong object from Core Data
-//                let fetchRequest: NSFetchRequest<LikedSongs> = LikedSongs.fetchRequest()
-//                fetchRequest.predicate = NSPredicate(format: "songName == %@", track.title)
+//            // Save the context
+//            CoreDataStack.shared.saveContext()
 //
-//                do {
-//                    let fetchedResults = try context.fetch(fetchRequest)
+//            // Clear the likedSong reference
+//            self.likedSong = nil
 //
-//                    if let likedSong = fetchedResults.first {
-//                        context.delete(likedSong)
-//                        try context.save()
-//
-//                        print("Deselected")
-//                        LikedSongsManager.shared.removeTrack(track)
-//                    }
-//                } catch {
-//                    print("Failed to remove liked song from Core Data: \(error)")
-//                }
+//            print("Deselected")
 //        }
 //
+//        let imageData = coverImageView.image?.jpegData(compressionQuality: 0.5)
+//        saveData.setValue(imageData, forKey: "songImage")
+//        saveData.setValue(durationLabel.text, forKey: "songDuration")
+//        saveData.setValue(titleLabel.text, forKey: "songName")
+//
+//        do {
+//            try context.save()
+//        } catch {
+//            print("error")
+//        }
 //    }
-
+    
+    
 }
 protocol TrackCellDelegate: AnyObject {
     func trackCell(_ cell: TrackCell, didChangeLikedState isLiked: Bool)
 }
-

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -48,6 +49,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+    lazy var persistentContainer: NSPersistentContainer = {
+            let container = NSPersistentContainer(name: "BHCoreData")
+            container.loadPersistentStores { description, error in
+                if let error = error {
+                    fatalError("Unable to load persistent store \(error)")
+                }
+            }
+            return container
+        }()
 
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -74,9 +74,7 @@ class FirstViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.genres = genres.data
                     self.collectionView.reloadData()
-                    print(data)
                 }
-                print(data)
             } catch let jsonError {
                 print("Failed to decode JSON:", jsonError)
             }
